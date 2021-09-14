@@ -231,6 +231,7 @@ MonoBehaviour:
   _playerData: {fileID: 11400000, guid: 97f50b8468451e54599ecc2df0bb3282, type: 2}
   _inputData: {fileID: 11400000, guid: b6ffaa3c6e2570d46bf3cf77fd0e3753, type: 2}
   _enemyata: {fileID: 11400000, guid: 270ad70b042a0344499bc7f3f6981f04, type: 2}
+  _bonusData: {fileID: 11400000, guid: b219049ab4b105f44a782f29d7162259, type: 2}
   inputType: 1
 --- !u!20 &519420031
 Camera:
