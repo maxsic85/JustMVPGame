@@ -5,17 +5,17 @@ using UnityEngine;
 
 namespace Code.MVC
 {
-    public class EnemySpawnController : IExecute
+    public sealed class EnemySpawnController : IExecute
     {
         IEnemyFabrik _enemyFabrik;
         EnemyData _enemyData;
        
-        public EnemySpawnController(IEnemyFabrik enemyFabrik, EnemyData enemyData,ref Action some)
+        public EnemySpawnController(IEnemyFabrik enemyFabrik, EnemyData enemyData,ref Action genericEnemy)
         {
             this._enemyFabrik = enemyFabrik;
             this._enemyData = enemyData;
           
-            some = GenericEnemy;
+            genericEnemy = GenericEnemy;
         }
 
         private void GenericEnemy()

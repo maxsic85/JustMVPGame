@@ -10,10 +10,11 @@ namespace Code.MVC
     public class GameStarter : MonoBehaviour
     {
     
-        public Action action;
+        public Action GenericEnemyAction;
         [SerializeField] private PlayerData _playerData;
         [SerializeField] private InputData _inputData;
         [SerializeField] private EnemyData _enemyata;
+        [SerializeField] private BonusData _bonusData;
         [SerializeField] private InputType inputType;
         Controllers _controllers;
 
@@ -22,10 +23,10 @@ namespace Code.MVC
         void Start()
         {        
             _controllers = new Controllers();
-            new GameInitialisation(_playerData, _controllers, inputType, _inputData, _enemyata,ref  action);                    
-            InvokeRepeating("some", 1, 1);
+            new GameInitialisation(_playerData, _controllers, inputType, _inputData, _enemyata,ref  GenericEnemyAction, _bonusData);                    
+            InvokeRepeating("GenericEnemy", 1, 1);
             var testAction = FindObjectOfType<OnTriggerExit>();
-            testAction.OntriggerEnterAction += OntriggerAction;
+            testAction.OntriggerEnterGameOverAction += OntriggerAction;
         }
 
        
@@ -37,9 +38,9 @@ namespace Code.MVC
         }
 
      
-        void some()
+        void GenericEnemy()
         {
-              action?.Invoke();
+              GenericEnemyAction?.Invoke();
         }
 
         public void OntriggerAction()
@@ -50,7 +51,7 @@ namespace Code.MVC
         ~GameStarter()
         {
             StopAllCoroutines();
-            _ = Delegate.RemoveAll(action, action);
+            _ = Delegate.RemoveAll(GenericEnemyAction, GenericEnemyAction);
         }
     }
 }

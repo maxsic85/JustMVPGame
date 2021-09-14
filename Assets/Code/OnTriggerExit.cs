@@ -4,7 +4,7 @@ using UnityEngine;
 
 public sealed class OnTriggerExit : MonoBehaviour
 {
-    public event Action OntriggerEnterAction;
+    public event Action OntriggerEnterGameOverAction;
 
    
 
@@ -25,9 +25,9 @@ public sealed class OnTriggerExit : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        OntriggerEnterAction?.Invoke();
+        OntriggerEnterGameOverAction?.Invoke();
         Debug.Log(collision.gameObject);
-        Debug.Log(OntriggerEnterAction.GetInvocationList().Length);
+        Debug.Log(OntriggerEnterGameOverAction.GetInvocationList().Length);
 
     }
 }

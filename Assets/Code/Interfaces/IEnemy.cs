@@ -3,9 +3,8 @@
 
 namespace Code.MVC
 {
-  public  interface IEnemy
+  public  interface IEnemy: IEventable
     {
-        void OnEnable();
-        void OnDestroy();
+       
     }
 }
